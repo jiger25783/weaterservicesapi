@@ -1,0 +1,27 @@
+{
+  "name": "csdl-rest-endpoints",
+  "version": "1.0.0",
+  "description": "CSDL Rest endpoints for Content, Publication and Syndication",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "csdl"
+  ],
+  "author": "IEEE Computer Society",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "dark-sky": "^1.1.2",
+    "express": "^4.15.2",
+    "js2xmlparser": "^3.0.0",
+    "moment": "^2.18.1",
+    "mongodb": "^2.2.26",
+    "node-where": "^1.1.0",
+    "passport": "^0.3.2",
+    "passport-http": "^0.3.0",
+    "q": "^1.5.0",
+    "winston": "^2.3.1"
+  }
+}
