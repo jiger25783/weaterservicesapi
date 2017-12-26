@@ -9,7 +9,7 @@
   "keywords": [
     "csdl"
   ],
-  "author": "IEEE Computer Society",
+  "author": "Jigar Patel",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.17.2",

@@ -12,16 +12,16 @@ module.exports = function (app, passport, winston, config) {
 	// ============================================================
 	// Generic Catch-All for PUT / DELETE / PATCH
 	// ============================================================
-	app.put("/api/*", passport.authenticate('basic', { session: false }), function(req, res, next){
+	app.put("/weatherapi/*", passport.authenticate('basic', { session: false }), function(req, res, next){
 		res.send([{"error":"PUT has been disabled."}]);
 	});
-	app.delete("/api/*", passport.authenticate('basic', { session: false }), function(req, res, next){
+	app.delete("/weatherapi/*", passport.authenticate('basic', { session: false }), function(req, res, next){
 		res.send([{"error":"DELETE has been disabled."}]);
 	});
-	app.patch("/api/*", passport.authenticate('basic', { session: false }), function(req, res, next){
+	app.patch("/weatherapi/*", passport.authenticate('basic', { session: false }), function(req, res, next){
 		res.send([{"error":"PATCH has been disabled."}]);
 	});
-	app.post("/api/*", passport.authenticate('basic', { session: false }), function(req, res, next){
+	app.post("/weatherapi/*", passport.authenticate('basic', { session: false }), function(req, res, next){
 		res.send([{"error":"POST has been disabled."}]);
 	});
 
@@ -32,7 +32,7 @@ module.exports = function (app, passport, winston, config) {
 	// ============================================================
 	// getLastWeekWeatherInfo service
 	// ============================================================
-	app.get("/api/v1/getLastWeekWeatherInfo/:location", passport.authenticate('basic', { session: false }), function(req, res, next){
+	app.get("/weatherapi/v1/getLastWeekWeatherInfo/:location", passport.authenticate('basic', { session: false }), function(req, res, next){
 		getLastWeekWeatherInfo(req, res, next);
 	});
 	
