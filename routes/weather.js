@@ -45,14 +45,29 @@ module.exports = function (app, passport, winston, config) {
 			let where = require('node-where');
 		  	where.is(location, function(err, result) {
 		  		if (result) {
-				    console.log('Lat: ' + result.get('lat'));
+				    console.log('getLastWeekWeatherInfo Lat: ' + result.get('lat'));
 				    console.log('Lng: ' + result.get('lng'));
+				    /*console.log('City: ' + result.get('city'));
+				    console.log('State / Region: ' + result.get('region'));
+				    console.log('State / Region Code: ' + result.get('regionCode'));
+				    console.log('Zip: ' + result.get('postalCode'));
+				    console.log('Country: ' + result.get('country'));*/
 				}
 				let latitude = result.get('lat')
 				let longitude = result.get('lng')
+				let city = result.get('city');
+			    let state = result.get('region');
+			    let zipCode = result.get('postalCode');
+			    let country = result.get('country');
+
 				let locationObj = {
 					"latitude": latitude,
-					"longitude": longitude
+					"longitude": longitude,
+					"city": city,
+					"state": state,
+					"zipCode": zipCode,
+					"country": country,
+					"locationQry": location,
 				}
 				Utils.callDarkSky(locationObj, res, next)
 					.catch(err => {

@@ -37,7 +37,7 @@ module.exports = {
   },
 
   callDarkSky: function (locationObj, res, next) {
-    console.log("Inside seddata locationObj", locationObj)
+    console.log("Inside send locationObj", locationObj)
     var def = q.defer();
     try {
       var promises = []
@@ -50,13 +50,19 @@ module.exports = {
                         time: moment().subtract(i, 'days'),
                         exclude: ['minutely', 'hourly', 'currently', 'flags']
                       })
-                      .get())
+                      .get())        
       }
       
       q.all(promises).then(resArr=>{
+        console.log("Allpromises are back:" + resArr.length)
         var forecast = {
                         "latitude": locationObj.latitude,
                         "longitude": locationObj.longitude,
+                        "city": locationObj.city,
+                        "state": locationObj.state,
+                        "zipCode": locationObj.zipCode,
+                        "country": locationObj.country,
+                        "locationQry": locationObj.locationQry,
                         "daily":[]
         }
         for (var i =0; i< resArr.length; i++) {
@@ -66,6 +72,7 @@ module.exports = {
         def.resolve(forecast);
       })
     } catch (err) {
+      console.log("Error Occured in callDarkSky:" + err)
       def.reject(err)
     }    
     return def.promise;
