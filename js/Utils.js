@@ -47,7 +47,7 @@ module.exports = {
                       .options({
                         "latitude": locationObj.latitude,
                         "longitude": locationObj.longitude,
-                        time: moment().subtract(i, 'days'),
+                        time: moment().subtract(i+1, 'days'),
                         exclude: ['minutely', 'hourly', 'currently', 'flags']
                       })
                       .get())        
