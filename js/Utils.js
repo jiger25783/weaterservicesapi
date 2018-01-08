@@ -67,6 +67,7 @@ module.exports = {
         }
         for (var i =0; i< resArr.length; i++) {
           forecast.daily.push(this.formatWithJSDate(resArr[i].daily.data[0]))
+          //console.log(resArr[i].daily.data[0].date)
         }
         res.status(200).json(forecast)
         def.resolve(forecast);
